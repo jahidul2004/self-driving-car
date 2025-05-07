@@ -1,6 +1,7 @@
+![Goriber Tesla Demo](https://i.ibb.co.com/BH0tKgTS/image.png)
+
 # 🚗 Goriber Tesla
 
-![Goriber Tesla Demo](assets/demo.png)  
 _↑ Replace this with a real screenshot or GIF of your project_
 
 ---
@@ -16,8 +17,6 @@ Goriber Tesla is a fun mini-project built with **Python** and **Pygame**, where 
 -   Directional control with automatic turning
 -   Smooth movement at 60 FPS
 -   Track and car images loaded dynamically
-
----
 
 ---
 
