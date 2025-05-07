@@ -17,11 +17,16 @@ car_x = 146
 car_y = 260
 
 #Condition
-drive = True;
+drive = True
+clock = pygame.time.Clock()
 while drive:
+    clock.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             drive = False;
+    #Reduce the car y positions
+    car_y -= 1
+    
     window.blit(track, (0,0))
     window.blit(car,(car_x,car_y))
     pygame.display.update()
