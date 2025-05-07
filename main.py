@@ -8,6 +8,10 @@ window = pygame.display.set_mode((1200,400))
 #Load the track
 track = pygame.image.load("assets/track1.png")
 
+#Load the car
+car = pygame.image.load("assets/car.png")
+car = pygame.transform.scale(car,(40,80))
+
 #Condition
 drive = True;
 while drive:
@@ -15,4 +19,5 @@ while drive:
         if event.type == pygame.QUIT:
             drive = False;
     window.blit(track, (0,0))
+    window.blit(car,(146,260))
     pygame.display.update()
