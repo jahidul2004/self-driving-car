@@ -16,6 +16,9 @@ car = pygame.transform.scale(car,(40,80))
 car_x = 146
 car_y = 260
 
+#Camera Focal point
+focal_dist = 10
+
 #Condition
 drive = True
 clock = pygame.time.Clock()
@@ -29,8 +32,12 @@ while drive:
     cam_x = car_x+20
     cam_y = car_y+5
     
+    #Detect the track
+    up_px = window.get_at((cam_x, cam_y-focal_dist))[0]
+    
     #Reduce the car y positions
-    # car_y -= 1
+    if up_px == 255:
+        car_y -= 1
     
     window.blit(track, (0,0))
     window.blit(car,(car_x,car_y))
