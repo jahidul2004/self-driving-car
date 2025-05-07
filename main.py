@@ -24,9 +24,19 @@ while drive:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             drive = False;
+            
+    #Creating virtual camera for detecting objects
+    cam_x = car_x+20
+    cam_y = car_y+5
+    
     #Reduce the car y positions
-    car_y -= 1
+    # car_y -= 1
     
     window.blit(track, (0,0))
     window.blit(car,(car_x,car_y))
+    
+    #Drawing the virtual camera
+    pygame.draw.circle(window, (0,255,0), (cam_x, cam_y),5,5)
+    
+    
     pygame.display.update()
