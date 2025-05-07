@@ -6,7 +6,7 @@ window = pygame.display.set_mode((1200,400))
 
 
 #Load the track
-track = pygame.image.load("assets/track5.png")
+track = pygame.image.load("assets/track6.png")
 
 #Load the car
 car = pygame.image.load("assets/car.png")
@@ -64,7 +64,13 @@ while drive:
         cam_y_offset = 0
         cam_x_offset = 30
         car = pygame.transform.rotate(car, 90)
-        
+    
+    elif direction == 'right' and right_px !=255 and up_px == 255:
+        direction = 'up'
+        car_x += 30
+        cam_x_offset = 0
+        cam_y_offset += 0
+        car = pygame.transform.rotate(car, 90)
     #Car driving code
     if direction == 'up' and up_px == 255:
         car_y -= 1
