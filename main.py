@@ -16,6 +16,9 @@ car = pygame.transform.scale(car,(30,60))
 car_x = 155
 car_y = 300
 
+#Camera offset
+cam_x_offset = 0
+
 #Camera Focal point
 focal_dist = 25
 
@@ -32,7 +35,7 @@ while drive:
             drive = False;
             
     #Creating virtual camera for detecting objects
-    cam_x = car_x+15
+    cam_x = car_x+cam_x_offset+15
     cam_y = car_y+15
     
     #Detect the track
@@ -40,11 +43,12 @@ while drive:
     right_px = window.get_at((cam_x+focal_dist,cam_y))[0]
     
 
-    #Car driving code
+    #Change the direction
     if direction == 'up' and up_px != 255 and right_px == 255:
         direction = 'right'
-        print("Direction:",direction)
-        
+        cam_x_offset = 30
+        car = pygame.transform.rotate(car, -90)
+    #Car driving code
     if direction == 'up' and up_px == 255:
         car_y -= 1
         
