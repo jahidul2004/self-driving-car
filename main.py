@@ -6,18 +6,21 @@ window = pygame.display.set_mode((1200,400))
 
 
 #Load the track
-track = pygame.image.load("assets/track1.png")
+track = pygame.image.load("assets/track3.png")
 
 #Load the car
 car = pygame.image.load("assets/car.png")
-car = pygame.transform.scale(car,(40,80))
+car = pygame.transform.scale(car,(30,60))
 
 #Car positions
-car_x = 146
-car_y = 260
+car_x = 155
+car_y = 300
 
 #Camera Focal point
-focal_dist = 10
+focal_dist = 25
+
+#Car direction
+direction = 'up'
 
 #Condition
 drive = True
@@ -29,15 +32,24 @@ while drive:
             drive = False;
             
     #Creating virtual camera for detecting objects
-    cam_x = car_x+20
-    cam_y = car_y+5
+    cam_x = car_x+15
+    cam_y = car_y+15
     
     #Detect the track
     up_px = window.get_at((cam_x, cam_y-focal_dist))[0]
+    right_px = window.get_at((cam_x+focal_dist,cam_y))[0]
     
-    #Reduce the car y positions
-    if up_px == 255:
+
+    #Car driving code
+    if direction == 'up' and up_px != 255 and right_px == 255:
+        direction = 'right'
+        print("Direction:",direction)
+        
+    if direction == 'up' and up_px == 255:
         car_y -= 1
+        
+    if direction == 'right' and right_px == 255:
+        car_x += 1
     
     window.blit(track, (0,0))
     window.blit(car,(car_x,car_y))
