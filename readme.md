@@ -2,8 +2,6 @@
 
 # 🚗 Goriber Tesla
 
-_↑ Replace this with a real screenshot or GIF of your project_
-
 ---
 
 Goriber Tesla is a fun mini-project built with **Python** and **Pygame**, where a car automatically drives on a predefined track using pixel color detection logic.
